@@ -1,5 +1,5 @@
 defmodule Tableau.OgExtension do
-  @moduledoc """
+  @moduledoc ~S'''
   Extension to create Open Graph images.
 
   The Open Graph extension utilizes a user provided template, the Puppeteer Node.js module, and Google Chrome to 
@@ -26,9 +26,44 @@ defmodule Tableau.OgExtension do
 
   Subsequent runs will not regenerate existing images, so delete them first if you have changed your template.
 
+  ### Template
+
+  The extension will render a configured template into the image. The template is configured as a module/function tuple
+  that will be passed assigns including the Tableau page, which includes the title, permalink, etc.
+
+  Here is an example:
+
+  ```elixir
+  defmodule MySite.Og do
+    require EEx
+    EEx.function_from_string(
+      :def,
+      :template,
+      """
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+          <meta charset="utf-8" />
+          <style>
+           <!-- my styles -->
+          </style>
+        </head>
+        <body >
+          <%= @page.title %> 
+        </body>
+      </html>
+      """,
+      [:assigns]
+    )
+  end
+  ```
+
+  Configuration example can be seen below.
+
   ## Configuration
 
-  Defaults are shown below.
+  Examples are shown below.
 
   ```elixir
   # config/config.exs
@@ -36,9 +71,10 @@ defmodule Tableau.OgExtension do
   config :tableau, Tableau.OgExtension,
     enabled: true,
     path: "./priv/og",
+    template: {MySite.Og, :template}
     log: true
   ```
-  """
+  '''
   use Tableau.Extension,
     enabled: true,
     key: :og,
