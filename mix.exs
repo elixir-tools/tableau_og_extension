@@ -28,7 +28,8 @@ defmodule TableauOgExtension.MixProject do
   defp deps do
     [
       {:tableau, "~> 0.16"},
-      {:nodejs, "~> 3.1"}
+      {:nodejs, "~> 3.1"},
+      {:ex_doc, ">= 0.0.0", only: :dev}
     ]
   end
 
