@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/elixir-tools/tableau_og_extension/compare/v0.1.0...v0.1.1) (2024-07-19)
+
+
+### Bug Fixes
+
+* set timeout to infinity ([28bd480](https://github.com/elixir-tools/tableau_og_extension/commit/28bd4804bc1a4251e6ccdc100a7b64a677e91d0e))
+
 ## [0.1.0](https://github.com/elixir-tools/tableau_og_extension/compare/v0.0.1...v0.1.0) (2024-07-18)
 
 
