@@ -90,28 +90,31 @@ defmodule Tableau.OgExtension do
       {template_module, template_function} = config[:template]
 
       token.site.pages
-      |> Task.async_stream(fn page ->
-        if page[:title] do
-          file = file_name(page[:permalink])
-          path = config[:path] |> Path.join(file)
+      |> Task.async_stream(
+        fn page ->
+          if page[:title] do
+            file = file_name(page[:permalink])
+            path = config[:path] |> Path.join(file)
 
-          unless File.exists?(path) do
-            html = apply(template_module, template_function, [%{page: page}])
+            unless File.exists?(path) do
+              html = apply(template_module, template_function, [%{page: page}])
 
-            image =
-              "take-screenshot"
-              |> NodeJS.call!([html], binary: true)
-              |> Base.decode64!()
+              image =
+                "take-screenshot"
+                |> NodeJS.call!([html], binary: true)
+                |> Base.decode64!()
 
-            File.mkdir_p!(path |> Path.dirname())
-            File.write!(path, image)
+              File.mkdir_p!(path |> Path.dirname())
+              File.write!(path, image)
 
-            if config[:log] do
-              Mix.shell().info("==> created image for #{page.permalink} at #{path}")
+              if config[:log] do
+                Mix.shell().info("==> created image for #{page.permalink} at #{path}")
+              end
             end
           end
-        end
-      end)
+        end,
+        timeout: :infinity
+      )
       |> Stream.run()
     end
 
