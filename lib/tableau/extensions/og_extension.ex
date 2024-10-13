@@ -81,12 +81,25 @@ defmodule Tableau.OgExtension do
     type: :pre_write,
     priority: 300
 
+  import Schematic
+
+  def config(config) do
+    unify(
+      map(%{
+        optional(:run, false) => bool(),
+        optional(:path, "priv/og") => str(),
+        optional(:log, true) => bool(),
+        template: tuple([atom(), atom()])
+      }),
+      config
+    )
+  end
+
   @doc false
   def run(token) do
-    config = Application.get_env(:tableau, __MODULE__)
-    config = Keyword.merge([run: false, path: "priv/og", log: true], config)
+    %{extensions: %{og: %{config: config}}} = token
 
-    if Application.get_env(:tableau_og_extension, :run, false) do
+    if config.run do
       {template_module, template_function} = config[:template]
 
       token.site.pages

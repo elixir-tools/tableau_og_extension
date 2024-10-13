@@ -27,7 +27,7 @@ defmodule TableauOgExtension.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:tableau, "~> 0.16"},
+      {:tableau, "~> 0.18"},
       {:nodejs, "~> 3.1"},
       {:ex_doc, ">= 0.0.0", only: :dev}
     ]
