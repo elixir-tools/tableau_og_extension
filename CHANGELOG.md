@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.0](https://github.com/elixir-tools/tableau_og_extension/compare/v0.1.1...v0.2.0) (2024-10-13)
+
+
+### Features
+
+* update to tableau 0.18 ([257ff85](https://github.com/elixir-tools/tableau_og_extension/commit/257ff85b16ad58346319d139aa271dd7dc32deaa))
+
 ## [0.1.1](https://github.com/elixir-tools/tableau_og_extension/compare/v0.1.0...v0.1.1) (2024-07-19)
 
 
