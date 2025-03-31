@@ -22,7 +22,7 @@ defmodule Tableau.OgExtension do
 
   ## Usage
 
-  The extension is ran when you run the Mix Task `mix tableau.gen.og`.
+  The extension is ran when you run the Mix Task `mix tableau.og.run`.
 
   Subsequent runs will not regenerate existing images, so delete them first if you have changed your template.
 
