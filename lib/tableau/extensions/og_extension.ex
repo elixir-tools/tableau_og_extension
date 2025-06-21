@@ -78,11 +78,11 @@ defmodule Tableau.OgExtension do
   use Tableau.Extension,
     enabled: true,
     key: :og,
-    type: :pre_write,
     priority: 300
 
   import Schematic
 
+  @impl Tableau.Extension
   def config(config) do
     unify(
       map(%{
@@ -96,7 +96,8 @@ defmodule Tableau.OgExtension do
   end
 
   @doc false
-  def run(token) do
+  @impl Tableau.Extension
+  def pre_write(token) do
     %{extensions: %{og: %{config: config}}} = token
 
     if config.run do
