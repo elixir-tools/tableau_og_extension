@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.0](https://github.com/elixir-tools/tableau_og_extension/compare/v0.2.0...v0.3.0) (2025-06-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Only supports >= v0.25.0 of Tableau
+
+### Code Refactoring
+
+* support tableau v0.25+ ([#5](https://github.com/elixir-tools/tableau_og_extension/issues/5)) ([dd732ed](https://github.com/elixir-tools/tableau_og_extension/commit/dd732ed3473ea5c67b931e4bd83fb6aa8f1953f2))
+
 ## [0.2.0](https://github.com/elixir-tools/tableau_og_extension/compare/v0.1.1...v0.2.0) (2024-10-13)
 
 
