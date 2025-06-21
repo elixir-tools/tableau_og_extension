@@ -8,7 +8,7 @@ defmodule TableauOgExtension.MixProject do
       app: :tableau_og_extension,
       description: "Open Graph Extension for Tableau",
       source_url: @source_url,
-      version: "0.2.0",
+      version: "0.3.0",
       elixir: "~> 1.15",
       start_permanent: Mix.env() == :prod,
       package: package(),
