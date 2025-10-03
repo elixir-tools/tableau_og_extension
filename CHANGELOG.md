@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/elixir-tools/tableau_og_extension/compare/v0.3.0...v0.3.1) (2025-10-03)
+
+
+### Bug Fixes
+
+* relax version constraint on Tableau ([724c7b9](https://github.com/elixir-tools/tableau_og_extension/commit/724c7b9ce11a5d5b1db2960f36732129031bf9a5))
+
 ## [0.3.0](https://github.com/elixir-tools/tableau_og_extension/compare/v0.2.0...v0.3.0) (2025-06-21)
 
 
